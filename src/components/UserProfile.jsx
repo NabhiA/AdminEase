@@ -1,25 +1,35 @@
 import React from 'react';
 import { MdOutlineCancel } from 'react-icons/md';
-
 import { Button } from '.';
 import { userProfileData } from '../data/dummy';
 import { useStateContext } from '../context/ContextProvider';
 import avatar from '../data/avatar.jpg';
 
 const UserProfile = () => {
-  const { currentColor } = useStateContext();
+  const { handleClick2,  currentColor} = useStateContext();
 
   return (
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
       <div className="flex justify-between items-center">
         <p className="font-semibold text-lg dark:text-gray-200">User Profile</p>
-        <Button
+        {/* <Button
           icon={<MdOutlineCancel />}
           color="rgb(153, 171, 180)"
+          onClick={() => setuserProfile(false)}
           bgHoverColor="light-gray"
           size="2xl"
           borderRadius="50%"
-        />
+        /> */}
+        <button
+            type="button"
+            // onClick={() => setuserProfile(false)}
+            onClick={() => handleClick2('userProfile')}
+            style={{ color: 'rgb(153,171,180', borderRadius: '50%'}}
+            className='text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray'
+            >
+              <MdOutlineCancel />
+
+        </button>
       </div>
       <div className="flex gap-5 items-center mt-6 border-color border-b-1 pb-6">
         <img
@@ -54,11 +64,21 @@ const UserProfile = () => {
       <div className="mt-5">
         <Button
           color="white"
+          onClick={() => handleClick2('userProfile')}
           bgColor={currentColor}
           text="Logout"
           borderRadius="10px"
           width="full"
         />
+        
+        {/* <button
+        type="button"
+        onClick={() => setuserProfile(false)}
+        style={{ color: 'white', borderRadius: '10px' }}
+        width="full"
+        >
+          Logout
+        </button> */}
       </div>
     </div>
 

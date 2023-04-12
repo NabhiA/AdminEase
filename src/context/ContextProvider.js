@@ -15,6 +15,8 @@ export const ContextProvider = ({children}) => {
     const [currentColor, setcurrentColor] = useState('#03C9D7');
     const [currentMode, setcurrentMode] = useState('Light');
     const [themeSettings, setthemeSettings] = useState(false);
+    const [userProfile, setuserProfile] = useState(false);
+
 
     const setMode = (e) => {
         setcurrentMode(e.target.value);
@@ -32,6 +34,10 @@ export const ContextProvider = ({children}) => {
     const handleClick = (clicked) => {
         setisClicked({ ...initialState, [clicked]:
         true});
+    } 
+    const handleClick2 = (clicked) => {
+        setisClicked({ ...initialState, [clicked]:
+        false});
     } 
     
     
@@ -52,8 +58,9 @@ export const ContextProvider = ({children}) => {
                 setthemeSettings,
                 setMode,
                 setColor,
-
-            
+                userProfile, 
+                setuserProfile,
+                handleClick2
             }}
         > 
 
